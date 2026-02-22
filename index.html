@@ -137,7 +137,7 @@
            ========================================= */
         #view-card {
             background: #fff;
-            width: 100%; max-width: 420px;
+            width: 100%; max-width: 420px; margin: 0 auto;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             position: relative; overflow: hidden;
@@ -169,10 +169,34 @@
             opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
         }
         .fullscreen-menu.visible { opacity: 1; visibility: visible; }
-        .menu-content { font-family: var(--font-odia); font-size: 20px; line-height: 1.6; max-width: 600px; color: #202124; display: flex; flex-direction: column; align-items: center; }
-        .menu-logo { width: 100px; height: 100px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .menu-content .play-store-link { display: inline-block; margin-top: 25px; padding: 12px 24px; background: var(--primary-red); color: white; border-radius: 100px; font-weight: 700; font-family: var(--font-main); text-decoration: none; box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25); transition: transform 0.2s; }
+        .menu-content { font-family: var(--font-odia); font-size: 20px; line-height: 1.6; width: 100%; max-width: 400px; color: #202124; display: flex; flex-direction: column; align-items: center; }
+        .menu-logo { width: 90px; height: 90px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         #close-menu-btn { position: absolute; top: 20px; right: 20px; font-size: 32px; cursor: pointer; color: #5f6368; }
+
+        /* Added Custom Menu Links Styles */
+        .menu-links { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+        .menu-item {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 14px; background: #f8f9fa; border: 1px solid #e8eaed;
+            border-radius: 12px; color: #202124; font-weight: 700; font-family: var(--font-odia);
+            font-size: 16px; transition: transform 0.1s, background 0.2s;
+        }
+        .menu-item:active { transform: scale(0.98); background: #e8eaed; }
+        .menu-content .play-store-link { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; background: var(--primary-red); color: white; border-radius: 12px; font-weight: 700; font-family: var(--font-odia); font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25); transition: transform 0.2s; }
+        .play-store-link:active { transform: scale(0.98); }
+
+        /* --- POLICY VIEWS STYLES --- */
+        .policy-view {
+            width: 100%; max-width: 600px; margin: 0 auto;
+            background: #fff; min-height: 100vh;
+            padding-bottom: 40px;
+        }
+        .policy-content {
+            padding: 20px; font-family: var(--font-odia); font-size: 15px; line-height: 1.8; color: #333;
+        }
+        .policy-content h2 { color: var(--primary-red); font-size: 22px; margin-top: 0; margin-bottom: 15px; }
+        .policy-content h3 { color: #000; font-size: 18px; margin-top: 20px; margin-bottom: 10px; }
+        .policy-content p { margin-bottom: 15px; }
 
         /* --- NEW: FADE OUT OVERLAY (NO BLUR) --- */
         .popup-overlay {
@@ -344,14 +368,109 @@
         </div>
     </div>
 
+    <!-- 
+      ================================================================
+      NEW VIEWS: PRIVACY, TERMS, DMCA
+      ================================================================
+    -->
+
+    <!-- PRIVACY POLICY -->
+    <div id="view-privacy" class="hidden policy-view">
+        <header class="home-header">
+            <span class="material-symbols-rounded back-btn" data-target="view-home">arrow_back</span>
+            <span class="home-title">ଗୋପନୀୟତା ନୀତି</span>
+        </header>
+        <div class="policy-content">
+            <h2>ଗୋପନୀୟତା ନୀତି (Privacy Policy)</h2>
+            <p>ଓଡ଼ିଆ ଭାଷା (Odia Bhasa) ୱେବସାଇଟ୍ କୁ ସ୍ୱାଗତ। ଆପଣଙ୍କର ଗୋପନୀୟତା ଆମ ପାଇଁ ଅତ୍ୟନ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ। ଏହି ଗୋପନୀୟତା ନୀତି ଦସ୍ତାବେଜରେ ଆମେ କିପରି ତଥ୍ୟ ସଂଗ୍ରହ ଓ ବ୍ୟବହାର କରୁ, ତାହାର ସବିଶେଷ ବିବରଣୀ ରହିଛି।</p>
+            
+            <h3>ଲଗ୍ ଫାଇଲ୍ (Log Files)</h3>
+            <p>ଆମେ ଏକ ମାନକ ପଦ୍ଧତି ଅନୁସରଣ କରୁ ଯେଉଁଥିରେ ଲଗ୍ ଫାଇଲ୍ ବ୍ୟବହାର କରାଯାଏ। ୱେବସାଇଟ୍ ପରିଦର୍ଶନ କଲାବେଳେ ଏହି ଫାଇଲଗୁଡିକ ପରିଦର୍ଶକମାନଙ୍କର ସାଧାରଣ ତଥ୍ୟ ସଂଗ୍ରହ କରିଥାଏ (ଯେପରିକି IP ଠିକଣା, ବ୍ରାଉଜର୍ ପ୍ରକାର, ଇଣ୍ଟରନେଟ୍ ସେବା ପ୍ରଦାନକାରୀ ଇତ୍ୟାଦି)। ଏହା କୌଣସି ବ୍ୟକ୍ତିଗତ ପରିଚୟ ସହିତ ଜଡିତ ନୁହେଁ। ଏହା କେବଳ ୱେବସାଇଟର ଉନ୍ନତି ଏବଂ ପରିସଂଖ୍ୟାନ ବିଶ୍ଳେଷଣ ପାଇଁ ଉଦ୍ଦିଷ୍ଟ।</p>
+            
+            <h3>କୁକିଜ୍ (Cookies) ଏବଂ Google AdSense</h3>
+            <p>ଅନ୍ୟ କୌଣସି ୱେବସାଇଟ୍ ପରି, ଓଡ଼ିଆ ଭାଷା 'କୁକିଜ୍' ବ୍ୟବହାର କରେ। Google ଆମ ସାଇଟରେ ଏକ ତୃତୀୟ-ପକ୍ଷ ବିକ୍ରେତା (Third-party Vendor) ଅଟେ। ଏହା ଆମ ସାଇଟ୍ ପରିଦର୍ଶକମାନଙ୍କୁ ବିଜ୍ଞାପନ ଦେଖାଇବା ପାଇଁ DART କୁକିଜ୍ ବ୍ୟବହାର କରେ। ତଥାପି, ବ୍ୟବହାରକାରୀମାନେ Google ବିଜ୍ଞାପନ ଏବଂ ବିଷୟବସ୍ତୁ ନେଟୱାର୍କ (Google ad and content network) ର ଗୋପନୀୟତା ନୀତି ପରିଦର୍ଶନ କରି DART କୁକିଜ୍ ର ବ୍ୟବହାରକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରିପାରିବେ।</p>
+
+            <h3>ତୃତୀୟ-ପକ୍ଷ ଲିଙ୍କ୍ ଏବଂ ବିଜ୍ଞାପନ (Third-Party Ads)</h3>
+            <p>ଆମେ ଆମର ୱେବସାଇଟରେ ତୃତୀୟ-ପକ୍ଷ (Google AdSense) ବିଜ୍ଞାପନ ବ୍ୟବହାର କରୁ। ଏହି ବିଜ୍ଞାପନ ସର୍ଭରଗୁଡ଼ିକ ଆପଣଙ୍କ ବ୍ରାଉଜରକୁ ସିଧାସଳଖ ବିଜ୍ଞାପନ ଏବଂ ଲିଙ୍କ୍ ପଠାଇବା ପାଇଁ ଟେକ୍ନୋଲୋଜି ବ୍ୟବହାର କରନ୍ତି। ଆମେ Google AdSense ନିର୍ଦ୍ଦେଶାବଳୀକୁ ସମ୍ପୂର୍ଣ୍ଣ ରୂପେ ପାଳନ କରୁ ଏବଂ କୌଣସି ବେଆଇନ ବିଷୟବସ୍ତୁକୁ ପ୍ରୋତ୍ସାହିତ କରୁନାହୁଁ। ଅନ୍ୟ ବିଜ୍ଞାପନଦାତାଙ୍କ କୁକିଜ୍ ଉପରେ ଆମର କୌଣସି ନିୟନ୍ତ୍ରଣ ନାହିଁ।</p>
+
+            <h3>ସମ୍ମତି (Consent)</h3>
+            <p>ଆମର ୱେବସାଇଟ୍ ବ୍ୟବହାର କରି, ଆପଣ ଆମର ଗୋପନୀୟତା ନୀତିରେ ସମ୍ମତି ପ୍ରଦାନ କରୁଛନ୍ତି ଏବଂ ଏହାର ସର୍ତ୍ତାବଳୀରେ ରାଜି ହେଉଛନ୍ତି।</p>
+        </div>
+    </div>
+
+    <!-- TERMS AND CONDITIONS -->
+    <div id="view-terms" class="hidden policy-view">
+        <header class="home-header">
+            <span class="material-symbols-rounded back-btn" data-target="view-home">arrow_back</span>
+            <span class="home-title">ସର୍ତ୍ତାବଳୀ</span>
+        </header>
+        <div class="policy-content">
+            <h2>ସର୍ତ୍ତାବଳୀ (Terms & Conditions)</h2>
+            <p>ଆମର ୱେବସାଇଟ୍ ଏବଂ ଆପ୍ ବ୍ୟବହାର କରିବା ପୂର୍ବରୁ ଦୟାକରି ଏହି ସର୍ତ୍ତାବଳୀଗୁଡ଼ିକୁ ଭଲଭାବରେ ପଢ଼ନ୍ତୁ। ଏହି ୱେବସାଇଟ୍ କୁ ଆକ୍ସେସ୍ କରି ଆପଣ ଏହି ସମସ୍ତ ସର୍ତ୍ତ ମାନିବାକୁ ସମ୍ମତି ପ୍ରଦାନ କରୁଛନ୍ତି।</p>
+
+            <h3>୧. ସାଇଟ୍ ର ବ୍ୟବହାର</h3>
+            <p>ଓଡ଼ିଆ ଭାଷା ୱେବସାଇଟ୍ କେବଳ ଶିକ୍ଷଣୀୟ ଏବଂ ସୂଚନାମୂଳକ ଉଦ୍ଦେଶ୍ୟରେ ତିଆରି କରାଯାଇଛି। ଏହାକୁ କୌଣସି ବେଆଇନ କାର୍ଯ୍ୟ ପାଇଁ ବ୍ୟବହାର କରିବା ସମ୍ପୂର୍ଣ୍ଣ ନିଷେଧ।</p>
+
+            <h3>୨. ବୌଦ୍ଧିକ ସମ୍ପତ୍ତି (Intellectual Property)</h3>
+            <p>ଏହି ୱେବସାଇଟରେ ଥିବା ସମସ୍ତ ବିଷୟବସ୍ତୁ (ଯେପରିକି ଟେକ୍ସଟ୍, ଡିଜାଇନ୍, ଲୋଗୋ, ଏବଂ ଗ୍ରାଫିକ୍ସ) ଆମର ବୌଦ୍ଧିକ ସମ୍ପତ୍ତି ଅଟେ। ବିନା ପୂର୍ବ ଅନୁମତିରେ ଆମର କୌଣସି ସୂଚନାକୁ ବାଣିଜ୍ୟିକ ଉଦ୍ଦେଶ୍ୟରେ ବ୍ୟବହାର କିମ୍ବା ନକଲ କରିବା ଆଇନଗତ ଅପରାଧ ଅଟେ।</p>
+
+            <h3>୩. ବାହ୍ୟ ଲିଙ୍କ୍ (External Links)</h3>
+            <p>ଆମ ସାଇଟରେ କିଛି ବାହ୍ୟ (ତୃତୀୟ-ପକ୍ଷ) ୱେବସାଇଟ୍ ର ଲିଙ୍କ୍ ଥାଇପାରେ। ସେହି ୱେବସାଇଟ୍ ଗୁଡ଼ିକର ବିଷୟବସ୍ତୁ କିମ୍ବା ନୀତି ପାଇଁ ଆମେ ଦାୟୀ ରହିବୁ ନାହିଁ। ଆପଣ ନିଜ ଦାୟିତ୍ୱରେ ସେହି ସାଇଟଗୁଡିକୁ ପରିଦର୍ଶନ କରିବେ।</p>
+
+            <h3>୪. ପରିବର୍ତ୍ତନର ଅଧିକାର</h3>
+            <p>ଆମେ ଯେକୌଣସି ସମୟରେ ଏହି ସର୍ତ୍ତାବଳୀକୁ ପରିବର୍ତ୍ତନ କିମ୍ବା ସଂଶୋଧନ କରିବାର ଅଧିକାର ରଖୁ। ଦୟାକରି ନୂତନ ଅପଡେଟ୍ ପାଇଁ ନିୟମିତ ଭାବେ ଏହି ପୃଷ୍ଠା ପରିଦର୍ଶନ କରନ୍ତୁ।</p>
+        </div>
+    </div>
+
+    <!-- DMCA POLICY -->
+    <div id="view-dmca" class="hidden policy-view">
+        <header class="home-header">
+            <span class="material-symbols-rounded back-btn" data-target="view-home">arrow_back</span>
+            <span class="home-title">DMCA</span>
+        </header>
+        <div class="policy-content">
+            <h2>DMCA କପିରାଇଟ୍ ନୀତି (DMCA Policy)</h2>
+            <p>ଓଡ଼ିଆ ଭାଷା (Odia Bhasa) ଅନ୍ୟମାନଙ୍କର ବୌଦ୍ଧିକ ସମ୍ପତ୍ତି (Intellectual Property) ଅଧିକାରକୁ ସମ୍ମାନ କରେ ଏବଂ ଡିଜିଟାଲ୍ ମିଲେନିୟମ୍ କପିରାଇଟ୍ ଆକ୍ଟ (DMCA) ସମେତ ସମସ୍ତ ପ୍ରଯୁଜ୍ୟ କପିରାଇଟ୍ ଆଇନକୁ ପାଳନ କରିବାକୁ ପ୍ରତିଶ୍ରୁତିବଦ୍ଧ।</p>
+
+            <h3>କପିରାଇଟ୍ ଉଲ୍ଲଂଘନ ଅଭିଯୋଗ (Takedown Notice)</h3>
+            <p>ଯଦି ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ଯେ ଆପଣଙ୍କର କୌଣସି କପିରାଇଟ୍ ବିଷୟବସ୍ତୁ ଆମର ୱେବସାଇଟରେ ବିନା ଅନୁମତିରେ ପ୍ରକାଶିତ ହୋଇଛି, ତେବେ ଦୟାକରି ଆମକୁ ତୁରନ୍ତ ଅବଗତ କରାନ୍ତୁ। ଆମେ ଯାଞ୍ଚ କରିବା ପରେ ଉକ୍ତ ବିଷୟବସ୍ତୁକୁ ତୁରନ୍ତ ହଟାଇଦେବୁ।</p>
+            
+            <p>ଏକ ବୈଧ (Valid) DMCA ଅଭିଯୋଗ ଦାଖଲ କରିବାକୁ, ନିମ୍ନଲିଖିତ ସୂଚନା ଆମକୁ ଲିଖିତ ଆକାରରେ ପ୍ରଦାନ କରନ୍ତୁ:</p>
+            <ul>
+                <li>ଆପଣଙ୍କର ନାମ ଏବଂ ଯୋଗାଯୋଗ ଠିକଣା (ଇମେଲ୍ / ଫୋନ୍ ନମ୍ବର)।</li>
+                <li>ସେହି ବିଷୟବସ୍ତୁର ସବିଶେଷ ତଥ୍ୟ ଯାହା ଆପଣଙ୍କ ମତରେ କପିରାଇଟ୍ ଉଲ୍ଲଂଘନ କରୁଛି।</li>
+                <li>ଆମ ସାଇଟରେ ଥିବା ସେହି ବିଷୟବସ୍ତୁର ସଠିକ୍ URL ଲିଙ୍କ୍।</li>
+                <li>ଏକ ବିବୃତ୍ତି ଯେ ସୂଚନା ସମ୍ପୂର୍ଣ୍ଣ ସଠିକ୍ ଏବଂ ଆପଣ ଉକ୍ତ କପିରାଇଟ୍ ର ମୂଳ ମାଲିକ ଅଟନ୍ତି।</li>
+            </ul>
+
+            <p>ଆମକୁ ସୂଚିତ କରିବା ପାଇଁ, ଆପଣ ଆମର ଅଫିସିଆଲ୍ ଇମେଲରେ ଯୋଗାଯୋଗ କରିପାରିବେ। ଯାଞ୍ଚ ପ୍ରକ୍ରିୟା ପରେ ୨୪ ରୁ ୪୮ ଘଣ୍ଟା ମଧ୍ୟରେ କାର୍ଯ୍ୟାନୁଷ୍ଠାନ ଗ୍ରହଣ କରାଯିବ।</p>
+        </div>
+    </div>
+
+
     <!-- FULLSCREEN MENU -->
     <div id="fullscreen-menu" class="fullscreen-menu">
         <span id="close-menu-btn" class="material-symbols-rounded">close</span>
         <div class="menu-content">
             <img src="https://imsbg.github.io/odiabhasa/images/app.png" alt="Odia Bhasa Logo" class="menu-logo">
-            <p>ଓଡ଼ିଆ ଭାଷା ଆପ୍ ର ସମ୍ପୂର୍ଣ ମଜା ନେବାପାଇଁ ଏବେହିଁ ଗୁଗଲ ପ୍ଲେ ଷ୍ଟୋର ରୁ ଡାଉନଲୋଡ କରନ୍ତୁ</p>
+            
+            <div class="menu-links">
+                <a href="#" class="menu-item" data-target="view-home">
+                    <span class="material-symbols-rounded">home</span> ମୁଖ୍ୟ ପୃଷ୍ଟା
+                </a>
+                <a href="#" class="menu-item" data-target="view-privacy">
+                    <span class="material-symbols-rounded">privacy_tip</span> ଗୋପନୀୟତା ନୀତି
+                </a>
+                <a href="#" class="menu-item" data-target="view-terms">
+                    <span class="material-symbols-rounded">gavel</span> ସର୍ତ୍ତାବଳୀ
+                </a>
+                <a href="#" class="menu-item" data-target="view-dmca">
+                    <span class="material-symbols-rounded">copyright</span> DMCA
+                </a>
+            </div>
+
             <a href="https://play.google.com/store/apps/details?id=in.sandeep.odiabhasa" target="_blank" rel="noopener noreferrer" class="play-store-link">
-                Download App
+                <span class="material-symbols-rounded">shop</span> ଆପ୍ ଡାଉନଲୋଡ କରନ୍ତୁ
             </a>
         </div>
     </div>
@@ -580,10 +699,29 @@
         }
         loadBanners();
 
-        // --- MENU LOGIC ---
+        // --- MENU LOGIC & NAVIGATION ---
         const menuIcon = document.getElementById('menu-icon');
         const fullscreenMenu = document.getElementById('fullscreen-menu');
         const closeMenuBtn = document.getElementById('close-menu-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const backBtns = document.querySelectorAll('.back-btn');
+        
+        // List of all main views to toggle
+        const views = ['view-home', 'view-card', 'view-privacy', 'view-terms', 'view-dmca'];
+
+        function switchView(targetId) {
+            views.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === targetId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+            });
+            window.scrollTo(0,0);
+        }
 
         if (menuIcon && fullscreenMenu && closeMenuBtn) {
             menuIcon.addEventListener('click', () => {
@@ -592,12 +730,34 @@
             });
             closeMenuBtn.addEventListener('click', () => {
                 fullscreenMenu.classList.remove('visible');
-                // Only remove noscroll if popup is also closed.
                 if(!document.getElementById('popup-overlay').classList.contains('active')){
                     document.body.classList.remove('noscroll');
                 }
             });
         }
+
+        // Add Click listeners for Menu Links
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = item.getAttribute('data-target');
+                switchView(target);
+                
+                // Close the menu
+                fullscreenMenu.classList.remove('visible');
+                if(!document.getElementById('popup-overlay').classList.contains('active')){
+                    document.body.classList.remove('noscroll');
+                }
+            });
+        });
+
+        // Add Click listeners for Back Buttons in Policy views
+        backBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-target');
+                switchView(target);
+            });
+        });
 
         // --- FEATURE 3: POPUP LOGIC ---
         const popup = document.getElementById('bottom-popup');
